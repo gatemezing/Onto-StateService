@@ -1,0 +1,480 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY geo "http://rdf.insee.fr/geo/" >
+    <!ENTITY org "http://www.w3.org/ns/org#" >
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY swrlx "http://www.w3.org/2003/11/swrlx#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.datalift.org/ontology/stateservice#"
+     xml:base="http://www.datalift.org/ontology/stateservice"
+     xmlns:geo="http://rdf.insee.fr/geo/"
+     xmlns:swrlx="http://www.w3.org/2003/11/swrlx#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:org="http://www.w3.org/ns/org#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.datalift.org/ontology/stateservice">
+        <owl:versionInfo xml:lang="fr">0.1</owl:versionInfo>
+        <terms:contributor xml:lang="fr">Eur&#233;com </terms:contributor>
+        <rdfs:comment xml:lang="fr">Ontologie d&#233;crivant les services administratifs, specialement les tribunaux pour la DILA</rdfs:comment>
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <owl:imports rdf:resource="&geo;ontologie-geo-2006.rdf"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&terms;contributor"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#basedLocallyAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#basedLocallyAt">
+        <rdfs:range rdf:resource="http://www.datalift.org/ontology/stateservice#CityHall"/>
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#LocalAdministration"/>
+        <rdfs:subPropertyOf rdf:resource="&org;basedAt"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#basedTribunalAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#basedTribunalAt">
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#JudicialBranch"/>
+        <rdfs:range rdf:resource="http://www.datalift.org/ontology/stateservice#Tribunal"/>
+        <rdfs:subPropertyOf rdf:resource="&org;basedAt"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#fax -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#fax">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.datalift.org/ontology/stateservice#faxNumber"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasAuthorityOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasAuthorityOn">
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#StateOrganization"/>
+        <rdfs:range rdf:resource="http://www.datalift.org/ontology/stateservice#Tribunal"/>
+        <owl:inverseOf rdf:resource="http://www.datalift.org/ontology/stateservice#underAuthorityOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasChamber -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasChamber">
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#Tribunal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasCompetence -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasCompetence">
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#Judge"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasCompetenceAreaCover -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasCompetenceAreaCover">
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#StateOrganization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasDegree -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasDegree">
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#Tribunal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasDeptOrganization -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasDeptOrganization">
+        <owl:inverseOf rdf:resource="http://www.datalift.org/ontology/stateservice#operatedIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasHeadOfGov -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasHeadOfGov">
+        <rdfs:domain rdf:resource="&geo;Pays_ou_Territoire"/>
+        <rdfs:range rdf:resource="http://www.datalift.org/ontology/stateservice#HeadOfGovernment"/>
+        <owl:inverseOf rdf:resource="http://www.datalift.org/ontology/stateservice#isHeadOfGov"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasHeadOfState -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasHeadOfState">
+        <rdfs:domain rdf:resource="&geo;Territoire_FR"/>
+        <rdfs:range rdf:resource="http://www.datalift.org/ontology/stateservice#StateOrganization"/>
+        <owl:inverseOf rdf:resource="http://www.datalift.org/ontology/stateservice#isHeadOfState"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasJuridictionOrder -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasJuridictionOrder">
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#Tribunal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasSection -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasSection">
+        <rdfs:subPropertyOf rdf:resource="http://www.datalift.org/ontology/stateservice#hasChamber"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#hasTribunalKind -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#hasTribunalKind">
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#Tribunal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#isHeadOfGov -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#isHeadOfGov"/>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#isHeadOfState -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#isHeadOfState"/>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#judgeCompetence -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#judgeCompetence"/>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#openingDays -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#openingDays">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.datalift.org/ontology/stateservice#LocalAdministration"/>
+                    <rdf:Description rdf:about="http://www.datalift.org/ontology/stateservice#Tribunal"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#openingHours -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#openingHours">
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#StateOrganization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#operatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#operatedIn">
+        <rdfs:range rdf:resource="&geo;Departement"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.datalift.org/ontology/stateservice#Administration"/>
+                    <rdf:Description rdf:about="http://www.datalift.org/ontology/stateservice#JudicialBranch"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#underAuthorityOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.datalift.org/ontology/stateservice#underAuthorityOf">
+        <rdfs:range rdf:resource="http://www.datalift.org/ontology/stateservice#JudicialBranch"/>
+        <rdfs:domain rdf:resource="http://www.datalift.org/ontology/stateservice#Tribunal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/org#basedAt -->
+
+    <owl:ObjectProperty rdf:about="&org;basedAt"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#faxNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.datalift.org/ontology/stateservice#faxNumber"/>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#initials -->
+
+    <owl:DatatypeProperty rdf:about="http://www.datalift.org/ontology/stateservice#initials"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rdf.insee.fr/geo/Departement -->
+
+    <owl:Class rdf:about="&geo;Departement"/>
+    
+
+
+    <!-- http://rdf.insee.fr/geo/Evenement -->
+
+    <owl:Class rdf:about="&geo;Evenement">
+        <rdfs:subClassOf rdf:resource="&org;ChangeEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.insee.fr/geo/Pays_ou_Territoire -->
+
+    <owl:Class rdf:about="&geo;Pays_ou_Territoire"/>
+    
+
+
+    <!-- http://rdf.insee.fr/geo/Territoire_FR -->
+
+    <owl:Class rdf:about="&geo;Territoire_FR"/>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#Administration -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#Administration">
+        <rdfs:subClassOf rdf:resource="http://www.datalift.org/ontology/stateservice#ExecutiveBranch"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#CityHall -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#CityHall">
+        <rdfs:subClassOf rdf:resource="&org;Site"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#ExecutiveBranch -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#ExecutiveBranch">
+        <rdfs:subClassOf rdf:resource="http://www.datalift.org/ontology/stateservice#StateOrganization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#Government -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#Government">
+        <rdfs:subClassOf rdf:resource="http://www.datalift.org/ontology/stateservice#ExecutiveBranch"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#HeadOfGovernment -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#HeadOfGovernment">
+        <rdfs:subClassOf rdf:resource="&org;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#HeadOfState -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#HeadOfState">
+        <rdfs:subClassOf rdf:resource="&org;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#Judge -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#Judge">
+        <rdfs:subClassOf rdf:resource="&org;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#JudicialBranch -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#JudicialBranch">
+        <rdfs:label rdf:resource="http://www.datalift.org/ontology/stateservice#initials"/>
+        <rdfs:subClassOf rdf:resource="http://www.datalift.org/ontology/stateservice#StateOrganization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#LegislativeBranch -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#LegislativeBranch">
+        <rdfs:subClassOf rdf:resource="http://www.datalift.org/ontology/stateservice#StateOrganization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#LocalAdministration -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#LocalAdministration">
+        <rdfs:label rdf:resource="http://www.datalift.org/ontology/stateservice#initials"/>
+        <rdfs:subClassOf rdf:resource="http://www.datalift.org/ontology/stateservice#Administration"/>
+        <rdfs:comment rdf:resource="http://www.datalift.org/ontology/stateservice#initials"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#Minister -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#Minister">
+        <rdfs:subClassOf rdf:resource="&org;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#PublicOrganization -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#PublicOrganization">
+        <rdfs:subClassOf rdf:resource="&org;FormalOrganization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#SecretairedEtat -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#SecretairedEtat">
+        <rdfs:subClassOf rdf:resource="&org;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#StateOrganization -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#StateOrganization">
+        <rdfs:label rdf:resource="http://www.datalift.org/ontology/stateservice#initials"/>
+        <rdfs:subClassOf rdf:resource="&org;FormalOrganization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#Tribunal -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#Tribunal">
+        <rdfs:subClassOf rdf:resource="&org;Site"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.datalift.org/ontology/stateservice#faxNumber -->
+
+    <owl:Class rdf:about="http://www.datalift.org/ontology/stateservice#faxNumber"/>
+    
+
+
+    <!-- http://www.w3.org/ns/org#ChangeEvent -->
+
+    <owl:Class rdf:about="&org;ChangeEvent"/>
+    
+
+
+    <!-- http://www.w3.org/ns/org#FormalOrganization -->
+
+    <owl:Class rdf:about="&org;FormalOrganization"/>
+    
+
+
+    <!-- http://www.w3.org/ns/org#Role -->
+
+    <owl:Class rdf:about="&org;Role"/>
+    
+
+
+    <!-- http://www.w3.org/ns/org#Site -->
+
+    <owl:Class rdf:about="&org;Site"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version [Not Released]) http://owlapi.sourceforge.net -->
+

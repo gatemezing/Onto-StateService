@@ -1,0 +1,15 @@
+This project contains the source schema for describing state services, mainly services dealing with judicial branch in France.
+
+For now, the RDF Schema is to be published further at http://www.datalift.org/ontology/stateservice/
+
+I am sharing the schema in github so others can contribute edits and improvements. It is an experiment to see how well a service like github can work for collaboratively managing schemas.
+
+To edit the schema, clone the repository, make your changes, check to make sure your change results in valid file.
+
+If you are satisfied with your edits, send me a pull request (http://help.github.com/pull-requests/) I'll consider merging and publishing it later.
+
+(Inspiration for this approach comes from others like https://github.com/rsinger/LinkedMARCCodes)
+
+TODO
++ mapping <insee:Type_administratif> with <stts:StateOrganization
++ Implement "opening days " and "opening hours"
